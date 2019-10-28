@@ -7,5 +7,7 @@ type CardProps = {
 
 export const Header = () =>
   <nav className="navbar navbar-expand-lg navbar-light bg-dark">
-    Navbar
+    <a href="#">
+      <img src="/coming-soon-logo.png" alt="texas-central-logo" height="50px"/>
+    </a>
   </nav>
