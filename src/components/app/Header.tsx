@@ -5,10 +5,7 @@ type CardProps = {
   paragraph: string
 }
 
-export const Header = ({ title, paragraph }: CardProps) =>
-  <aside>
-    <h2>{ title }</h2>
-    <p>
-      { paragraph }
-    </p>
-  </aside>
+export const Header = () =>
+  <nav className="navbar navbar-expand-lg navbar-light bg-dark">
+    Navbar
+  </nav>
