@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 50px;
 }
 
 .App-header {
@@ -17,6 +17,26 @@
   color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.nav-link {
+  color: #DDD;
+  margin-left: 10px;
+  font-family: 'Fjalla One', sans-serif;
+}
+
+.nav-link:hover {
+  color: white;
+
+}
+
+
+#body {
+  background-image: url("/shinkansen_field.jpg");
+  background-size: cover;
+  background-color: gray;
+  height: 100vh;
+}
+
+#navigation {
+  vertical-align: middle;
+    z-index: 2;
 }
