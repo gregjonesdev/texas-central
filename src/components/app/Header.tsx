@@ -18,10 +18,10 @@ export const Header = () =>
     </a>
     <ul className="nav nav-pills" id="pills-tab" role="tablist">
       <li className="nav-item">
-        <a className="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+        <a className="nav-link font-style" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+        <a className="nav-link font-style" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
       </li>
     </ul>
     <div className="tab-content" id="pills-tabContent">

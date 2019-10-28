@@ -20,6 +20,10 @@
 .nav-link {
   color: #DDD;
   margin-left: 10px;
+
+}
+
+.font-style {
   font-family: 'Fjalla One', sans-serif;
 }
 
@@ -39,4 +43,9 @@
 #navigation {
   vertical-align: middle;
     z-index: 2;
+}
+
+#ticketbox {
+  width: 80vw;
+  margin: 10vh auto;
 }
