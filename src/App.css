@@ -49,3 +49,17 @@
   width: 80vw;
   margin: 10vh auto;
 }
+
+.dropdown-toggle {
+  padding: 10px 50px;
+}
+
+.ticketform {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.ticketselect {
+  margin: 10px;
+}
