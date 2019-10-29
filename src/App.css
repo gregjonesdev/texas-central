@@ -45,7 +45,7 @@
     z-index: 2;
 }
 
-#ticketbox {
+#pills-ticketbox, #pills-about {
   width: 80vw;
   margin: 10vh auto;
 }
@@ -62,4 +62,8 @@
 
 .ticketselect {
   margin: 10px;
+}
+
+p {
+  text-align: left;
 }

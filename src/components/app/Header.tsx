@@ -18,15 +18,28 @@ export const Header = () =>
     </a>
     <ul className="nav nav-pills" id="pills-tab" role="tablist">
       <li className="nav-item">
-        <a className="nav-link font-style" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+        <a
+          className="nav-link font-style active"
+          id="pills-ticketbox-tab"
+          data-toggle="pill"
+          href="#pills-ticketbox"
+          role="tab"
+          aria-controls="pills-ticketbox"
+          aria-selected="true">
+          Tickets
+        </a>
       </li>
       <li className="nav-item">
-        <a className="nav-link font-style" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+        <a
+          className="nav-link font-style"
+          id="pills-about-tab"
+          data-toggle="pill"
+          href="#pills-about"
+          role="tab"
+          aria-controls="pills-about"
+          aria-selected="false">
+          About
+        </a>
       </li>
     </ul>
-    <div className="tab-content" id="pills-tabContent">
-      <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
-      <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-      <div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
-    </div>
   </nav>
