@@ -36,16 +36,16 @@ export const TicketForm = () => {
         </button>
         <div className="dropdown-menu">
         { choices.map((choice, index) => {
-            return choice.name === currentChoice ?
-               null :
-               (
-                 <button
-                  key="index"
-                  className="btn btn-default btn-block"
-                  onClick={e => { setChoice(choice.name)}}>
-                  {choice.name}
-                 </button>
-               )
+            return choice.name !== currentChoice ?
+              (
+                <button
+                 key="index"
+                 className="btn btn-default btn-block"
+                 onClick={e => { setChoice(choice.name)}}>
+                 {choice.name}
+                </button>
+              ) : null
+
             }
           )
         }
@@ -56,9 +56,9 @@ export const TicketForm = () => {
 
   return (
     <div
-      id="pills-ticketbox" 
-      className="tab-pane fade show active card" 
-      role="tabpanel" 
+      id="pills-ticketbox"
+      className="tab-pane fade show active card"
+      role="tabpanel"
       aria-labelledby="pills-ticketbox-tab">
       <div className="card-header font-style">
         <h3>Select Your Journey</h3>
