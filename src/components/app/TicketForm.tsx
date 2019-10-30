@@ -5,8 +5,14 @@ type CardProps = {
 }
 
 type DropdownMenuProps = {
-  choices: any
+  choices: IChoice[]
 }
+
+interface IChoice {
+  name: string
+}
+
+
 
 const classes = [
   {
@@ -26,15 +32,11 @@ const tickets = [
   },
 ]
 
-function AnotherComponent(props: CardProps) {
-  return <h1>{props.name}</h1>;
-}
-
 const DropdownMenu = (props: DropdownMenuProps) => {
 
   const { choices } = props;
 
-  const [currentChoice, setChoice ] = useState(choices[0].name);
+  const [currentChoice, setChoice] = useState(choices[0].name);
 
   return (
     <div className="dropdown ticketselect">
@@ -65,7 +67,7 @@ const DropdownMenu = (props: DropdownMenuProps) => {
 
 export const TicketForm = () => {
 
-
+  const [travelers, updateTravelers] = useState(1)
 
 
   return (
@@ -84,15 +86,28 @@ export const TicketForm = () => {
             <button
               className="btn btn-outline-secondary dropdown-toggle"
               data-toggle="dropdown">
-              1 Adult
+              {travelers} { travelers !== 1 ? "Adults" : "Adult"}
               <span className="caret"></span>
             </button>
             <div className="dropdown-menu">
-              <button className="btn btn-default btn-block">
-                Bring Some Friends
-              </button>
+              <form className="px-3 py-3">
+                <div className="form-group">
+                  Adults
+                  <div className="float-right">
+                    <span className="badge badge-secondary">
+                      <span className="oi oi-minus"></span>
+                    </span>
+                    <span className="form-increment-value">
+                      {travelers}
+                    </span>
+                    <span className="badge badge-secondary">
+                      <span className="oi oi-plus"></span>
+                    </span>
+                  </div>
+                </div>
+              </form>
             </div>
-          </div>
+        </div>
           <DropdownMenu choices={classes}/>
         </div>
       </div>

@@ -64,6 +64,10 @@
   margin: 10px;
 }
 
+.form-increment-value {
+  margin: 0 10px;
+}
+
 p {
   text-align: left;
 }
