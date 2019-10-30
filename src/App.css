@@ -51,13 +51,13 @@
 }
 
 .dropdown-toggle {
-  padding: 10px 50px;
+  width: 180px;
 }
 
 .ticketform {
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .ticketselect {

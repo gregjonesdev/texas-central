@@ -1,57 +1,72 @@
 import React, { useState } from "react";
 
 type CardProps = {
-  title: string,
-  paragraph: string
+  name: string,
 }
 
-type IOption = {
-  type: string
+type DropdownMenuProps = {
+  choices: any
+}
+
+const classes = [
+  {
+    name: 'Standard',
+  },
+  {
+    name: 'Business',
+  },
+];
+
+const tickets = [
+  {
+    name: 'Round Trip',
+  },
+  {
+    name: 'One Way',
+  },
+]
+
+function AnotherComponent(props: CardProps) {
+  return <h1>{props.name}</h1>;
+}
+
+const DropdownMenu = (props: DropdownMenuProps) => {
+
+  const { choices } = props;
+
+  const [currentChoice, setChoice ] = useState(choices[0].name);
+
+  return (
+    <div className="dropdown ticketselect">
+      <button
+        className="btn btn-outline-secondary dropdown-toggle"
+        data-toggle="dropdown">
+        {currentChoice}
+        <span className="caret"></span>
+      </button>
+      <div className="dropdown-menu">
+      { choices.map((choice: any, index: number) => {
+          return choice.name !== currentChoice ?
+            (
+              <button
+               key="index"
+               className="btn btn-default btn-block"
+               onClick={e => { setChoice(choice.name)}}>
+               {choice.name}
+              </button>
+            ) : null
+          }
+        )
+      }
+      </div>
+    </div>
+  )
 }
 
 export const TicketForm = () => {
 
-  const classes = [
-    {
-      name: 'Standard',
-    },
-    {
-      name: 'Business',
-    },
-  ];
 
-  const DropdownMenu = () => {
 
-    const choices = classes;
-
-    const [currentChoice, setChoice ] = useState(choices[0].name);
-
-    return (
-      <div>
-        <button
-          className="btn btn-outline-secondary dropdown-toggle"
-          data-toggle="dropdown">
-          {currentChoice}
-          <span className="caret"></span>
-        </button>
-        <div className="dropdown-menu">
-        { choices.map((choice, index) => {
-            return choice.name !== currentChoice ?
-              (
-                <button
-                 key="index"
-                 className="btn btn-default btn-block"
-                 onClick={e => { setChoice(choice.name)}}>
-                 {choice.name}
-                </button>
-              ) : null
-            }
-          )
-        }
-        </div>
-      </div>
-    )
-  }
 
   return (
     <div
@@ -64,19 +79,7 @@ export const TicketForm = () => {
       </div>
       <div className="card-body">
         <div className="ticketform">
-          <div className="dropdown ticketselect">
-            <button
-              className="btn btn-outline-secondary dropdown-toggle"
-              data-toggle="dropdown">
-              Round Trip
-              <span className="caret"></span>
-            </button>
-            <div className="dropdown-menu">
-              <button className="btn btn-default btn-block">
-                One Way
-              </button>
-            </div>
-          </div>
+          <DropdownMenu choices={tickets}/>
           <div className="dropdown ticketselect">
             <button
               className="btn btn-outline-secondary dropdown-toggle"
@@ -90,14 +93,7 @@ export const TicketForm = () => {
               </button>
             </div>
           </div>
-          <div className="dropdown ticketselect">
-            <DropdownMenu />
-
-
-
-
-
-          </div>
+          <DropdownMenu choices={classes}/>
         </div>
       </div>
     </div>
