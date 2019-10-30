@@ -45,7 +45,6 @@ export const TicketForm = () => {
                  {choice.name}
                 </button>
               ) : null
-
             }
           )
         }
