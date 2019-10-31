@@ -8,6 +8,10 @@ type DropdownMenuProps = {
   choices: IChoice[]
 }
 
+type EntryProps = {
+  type: string
+}
+
 interface IChoice {
   name: string
 }
@@ -65,9 +69,68 @@ const DropdownMenu = (props: DropdownMenuProps) => {
   )
 }
 
+const DropdownPassengers = () => {
+  const passengers = [
+    {type: "Adult", initial: 1},
+    {type: "Child", initial: 0},
+    {type: "Senior", initial: 0},
+    {type: "Student", initial: 0},
+  ]
+
+  const Entry = (props: EntryProps) => {
+
+    const [number, update] = useState(0)
+    const handleClick = (e: any) => {
+      const increment = e.currentTarget.value;
+      if (number + increment >= 0) {
+        update(increment)
+      }
+
+    }
+
+    return (
+      <div className="form-group">
+        {props.type}
+        <div className="float-right">
+          <button className="badge badge-secondary" onClick={e => handleClick(e)} value="-1">
+            <span className="oi oi-minus"></span>
+          </button>
+          <span className="form-increment-value">
+            {number}
+          </span>
+          <button className="badge badge-secondary" onClick={e => handleClick(e)} value="1">
+            <span className="oi oi-plus"></span>
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="dropdown ticketselect">
+      <button
+        className="btn btn-outline-secondary dropdown-toggle"
+        data-toggle="dropdown">
+        {null} { null !== 1 ? "Adults" : "Adult"}
+        <span className="caret"></span>
+      </button>
+      <div className="dropdown-menu">
+        <form className="px-3 py-3">
+          { passengers.map( passenger => (
+            <Entry type={passenger.type} />
+
+          )
+          )}
+
+        </form>
+      </div>
+    </div>
+  )
+}
+
 export const TicketForm = () => {
 
-  const [travelers, updateTravelers] = useState(1)
+
 
 
   return (
@@ -82,32 +145,7 @@ export const TicketForm = () => {
       <div className="card-body">
         <div className="ticketform">
           <DropdownMenu choices={tickets}/>
-          <div className="dropdown ticketselect">
-            <button
-              className="btn btn-outline-secondary dropdown-toggle"
-              data-toggle="dropdown">
-              {travelers} { travelers !== 1 ? "Adults" : "Adult"}
-              <span className="caret"></span>
-            </button>
-            <div className="dropdown-menu">
-              <form className="px-3 py-3">
-                <div className="form-group">
-                  Adults
-                  <div className="float-right">
-                    <span className="badge badge-secondary">
-                      <span className="oi oi-minus"></span>
-                    </span>
-                    <span className="form-increment-value">
-                      {travelers}
-                    </span>
-                    <span className="badge badge-secondary">
-                      <span className="oi oi-plus"></span>
-                    </span>
-                  </div>
-                </div>
-              </form>
-            </div>
-        </div>
+          <DropdownPassengers />
           <DropdownMenu choices={classes}/>
         </div>
       </div>
