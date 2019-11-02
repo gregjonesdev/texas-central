@@ -1,15 +1,6 @@
 import React from "react";
 import {ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 
-const data = [
-  {x: 100, y: 200},
-  {x: 120, y: 100},
-  {x: 170, y: 300},
-  {x: 140, y: 250},
-  {x: 150, y: 400},
-  {x: 110, y: 280}
-]
-
 const stations = [
   {x: 80, y: 100},
   {x: 110, y: 250},
@@ -32,6 +23,10 @@ const tooltipContent = () => (
   <div>items: badass shit</div>
 )
 
+const RenderNoShape = (props: any)=>{
+ return null;
+}
+
 export const Tracking = () =>
 
   <div
@@ -46,11 +41,10 @@ export const Tracking = () =>
     <ScatterChart width={400} height={400} margin={{top: 20, right: 20, bottom: 20, left: 20}}>
 
       <XAxis dataKey={'x'} type="number" tick={false} reversed axisLine={false} domain={[80, 200]} name='stature' />
-      <YAxis dataKey={'y'} type="number"  domain={[100, 700]} name='weight' />
-      <Scatter name='A school' data={data} fill='#8884d8'/>
-      <Scatter name='Predicted R' data={route} fill='#666' lineJointType='monotoneX' line />
-      <Scatter name='Predicted R' data={stations} fill='red' r={20} />
-      <Tooltip content={tooltipContent} />
+      <YAxis dataKey={'y'} type="number" domain={[100, 700]} name='weight' />
+      <Scatter name='Predicted R' data={route} fill='#bbb' lineJointType='monotoneX' line shape={<RenderNoShape />} />
+      <Scatter name='Predicted R' data={stations} fill='#666' />
+      <Tooltip cursor={false} content={tooltipContent} />
     </ScatterChart>
     </div>
     <div className="card-footer">
