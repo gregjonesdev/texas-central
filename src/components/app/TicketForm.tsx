@@ -8,6 +8,11 @@ type DropdownMenuProps = {
   choices: IChoice[]
 }
 
+type DropdownPassengerProps = {
+  adults: number,
+  increment: any,
+}
+
 type EntryProps = {
   type: string
 }
@@ -69,7 +74,7 @@ const DropdownMenu = (props: DropdownMenuProps) => {
   )
 }
 
-const DropdownPassengers = () => {
+const DropdownPassengers = (props: DropdownPassengerProps) => {
   const passengers = [
     {type: "Adult", initial: 1},
     {type: "Child", initial: 0},
@@ -77,33 +82,18 @@ const DropdownPassengers = () => {
     {type: "Student", initial: 0},
   ]
 
-  const Entry = (props: EntryProps) => {
+  // const Entry = (props: EntryProps) => {
+  //
+  //   const [number, update] = useState(0)
 
-    const [number, update] = useState(0)
-    const handleClick = (e: any) => {
-      const increment = e.currentTarget.value;
-      if (number + increment >= 0) {
-        update(increment)
-      }
+  //
+  //   }
 
-    }
+  const {adults, increment } = props;
 
-    return (
-      <div className="form-group">
-        {props.type}
-        <div className="float-right">
-          <button className="badge badge-secondary" onClick={e => handleClick(e)} value="-1">
-            <span className="oi oi-minus"></span>
-          </button>
-          <span className="form-increment-value">
-            {number}
-          </span>
-          <button className="badge badge-secondary" onClick={e => handleClick(e)} value="1">
-            <span className="oi oi-plus"></span>
-          </button>
-        </div>
-      </div>
-    )
+  const handleClick = (e: any) => {
+    const value = e.currentTarget.value;
+    alert(value)
   }
 
   return (
@@ -116,12 +106,20 @@ const DropdownPassengers = () => {
       </button>
       <div className="dropdown-menu">
         <form className="px-3 py-3">
-          { passengers.map( passenger => (
-            <Entry type={passenger.type} />
-
-          )
-          )}
-
+        <div className="form-group">
+          Adults
+          <div className="float-right">
+            <button className="badge badge-secondary" onClick={e => handleClick(e)} value="-1">
+              <span className="oi oi-minus"></span>
+            </button>
+            <span className="form-increment-value">
+              {adults}
+            </span>
+            <button className="badge badge-secondary" onClick={e => handleClick(e)} value="1">
+              <span className="oi oi-plus"></span>
+            </button>
+          </div>
+        </div>
         </form>
       </div>
     </div>
@@ -130,7 +128,7 @@ const DropdownPassengers = () => {
 
 export const TicketForm = () => {
 
-
+  const [adults, increment] = useState(1);
 
 
   return (
@@ -145,7 +143,7 @@ export const TicketForm = () => {
       <div className="card-body">
         <div className="ticketform">
           <DropdownMenu choices={tickets}/>
-          <DropdownPassengers />
+          <DropdownPassengers adults={adults} increment={increment}/>
           <DropdownMenu choices={classes}/>
         </div>
       </div>
