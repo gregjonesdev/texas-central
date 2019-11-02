@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 type CardProps = {
   name: string,
@@ -134,7 +134,7 @@ export const TicketForm = () => {
   return (
     <div
       id="pills-ticketbox"
-      className="tab-pane fade show active card"
+      className="tab-pane fade show active card pills-content"
       role="tabpanel"
       aria-labelledby="pills-ticketbox-tab">
       <div className="card-header font-style">

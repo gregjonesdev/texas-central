@@ -3,7 +3,7 @@ import React from "react";
 export const About = () =>
   <div
     id="pills-about"
-    className="tab-pane fade show card"
+    className="tab-pane fade show card pills-content"
     role="tabpanel"
     aria-labelledby="pills-about-tab">
     <div className="card-header font-style">
