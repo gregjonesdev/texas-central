@@ -1,27 +1,14 @@
 import React from "react";
-import {ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import {ScatterChart, LabelList, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import { route, stations } from '../../data/data';
 
-const stations = [
-  {x: 80, y: 100},
-  {x: 110, y: 250},
-  {x: 200, y: 700},
-]
 
-const route = [
-  {x: 80, y: 100},
-  {x: 80, y: 100},
-  {x: 80, y: 100},
-  {x: 110, y: 250},
-  {x: 120, y: 255},
-  {x: 150, y: 300},
-  {x: 160, y: 420},
-  {x: 170, y: 550},
-  {x: 200, y: 700},
-]
-
-const tooltipContent = () => (
-  <div>items: badass shit</div>
-)
+const TooltipContent = (props: any) => {
+  console.log(props)
+  return (
+  <div>{props.payload[0]? props.payload[0].payload.name : null}</div>
+  )
+}
 
 const RenderNoShape = (props: any)=>{
  return null;
@@ -38,13 +25,15 @@ export const Tracking = () =>
       <h3>Tracking</h3>
     </div>
     <div className="card-body">
-    <ScatterChart width={400} height={400} margin={{top: 20, right: 20, bottom: 20, left: 20}}>
+    <ScatterChart width={500} height={880} margin={{top: 20, right: 20, bottom: 20, left: 20}}>
 
-      <XAxis dataKey={'x'} type="number" tick={false} reversed axisLine={false} domain={[80, 200]} name='stature' />
-      <YAxis dataKey={'y'} type="number" domain={[100, 700]} name='weight' />
-      <Scatter name='Predicted R' data={route} fill='#bbb' lineJointType='monotoneX' line shape={<RenderNoShape />} />
-      <Scatter name='Predicted R' data={stations} fill='#666' />
-      <Tooltip cursor={false} content={tooltipContent} />
+      <XAxis dataKey={'x'} type="number" tick={false} reversed axisLine={false} domain={[-20, 85]} name='stature' />
+      <YAxis dataKey={'y'} type="number" domain={[0, 225]} name='weight' />
+      <Scatter name='Predicted R' data={route} fill='#666' lineJointType='monotoneX' line shape={<RenderNoShape />} />
+      <Scatter name='Predicted R' data={stations} fill='blue'>
+        <LabelList dataKey="name" position="right" />
+      </Scatter>
+      <Tooltip cursor={false} content={<TooltipContent />} />
     </ScatterChart>
     </div>
     <div className="card-footer">
