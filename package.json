@@ -11,7 +11,7 @@
     "eslint": "^6.6.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0",
+    "react-scripts": "^3.3.0",
     "recharts": "^1.8.5",
     "typescript": "3.6.4"
   },

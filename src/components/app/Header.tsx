@@ -44,13 +44,25 @@ export const Header = () =>
       <li className="nav-item">
         <a
           className="nav-link font-style"
-          id="pills-abouttracking-tab"
+          id="pills-tracking-tab"
           data-toggle="pill"
           href="#pills-tracking"
           role="tab"
           aria-controls="pills-tracking"
           aria-selected="false">
           Tracking
+        </a>
+      </li>
+      <li className="nav-item">
+        <a
+          className="nav-link font-style"
+          id="pills-api-tab"
+          data-toggle="pill"
+          href="#pills-api"
+          role="tab"
+          aria-controls="pills-api"
+          aria-selected="false">
+          Api
         </a>
       </li>
     </ul>
