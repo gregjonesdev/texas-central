@@ -37,7 +37,7 @@
   background-image: url("/shinkansen_field.jpg");
   background-size: cover;
   background-color: gray;
-  height: 100vh;
+  background-repeat: no-repeat;
 }
 
 #navigation {
@@ -45,23 +45,28 @@
     z-index: 2;
 }
 
-#pills-ticketbox, #pills-about {
+
+.pills-content {
   width: 80vw;
-  margin: 10vh auto;
+  margin: 50px auto;
 }
 
 .dropdown-toggle {
-  padding: 10px 50px;
+  width: 180px;
 }
 
 .ticketform {
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .ticketselect {
   margin: 10px;
+}
+
+.form-increment-value {
+  margin: 0 10px;
 }
 
 p {

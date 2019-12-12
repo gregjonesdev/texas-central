@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 type CardProps = {
   title: string,
@@ -39,6 +39,18 @@ export const Header = () =>
           aria-controls="pills-about"
           aria-selected="false">
           About
+        </a>
+      </li>
+      <li className="nav-item">
+        <a
+          className="nav-link font-style"
+          id="pills-abouttracking-tab"
+          data-toggle="pill"
+          href="#pills-tracking"
+          role="tab"
+          aria-controls="pills-tracking"
+          aria-selected="false">
+          Tracking
         </a>
       </li>
     </ul>
