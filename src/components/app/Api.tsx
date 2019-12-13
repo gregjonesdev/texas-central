@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 
 interface IState {
-  apiResponse: string;
+  apiResponse: any;
 }
 
 export class Api extends Component<any, IState> {
@@ -9,7 +9,7 @@ export class Api extends Component<any, IState> {
     super(props);
 
     this.state = {
-      apiResponse: "nothing yet"
+      apiResponse: []
     };
 
   }
@@ -17,7 +17,7 @@ export class Api extends Component<any, IState> {
 
   callApi() {
     fetch("http://localhost:9000/testAPI")
-    .then(res => res.text())
+    .then(res => res.json())
     .then(res => this.setState({ apiResponse: res }))
     .catch(err => err);
   }
@@ -29,6 +29,7 @@ export class Api extends Component<any, IState> {
 
   render() {
 
+    const service_intervals = this.state.apiResponse
 
     return (
       <div
@@ -36,8 +37,28 @@ export class Api extends Component<any, IState> {
         className="tab-pane fade show card pills-content"
         role="tabpanel"
         aria-labelledby="pills-api-tab">
-        <div className="card-header">API</div>
-        {this.state.apiResponse}
+        <div className="card-header">Service Intervals</div>
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Peak (min)</th>
+              <th scope="col">Off-Peak (min)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {service_intervals.map((interval: any, index: number) => {
+              return (
+                <tr key={index}>
+                  <td>{interval.operating_level}</td>
+                  <td>{interval.peak_minutes}</td>
+                  <td>{interval.offpeak_minutes}</td>
+                </tr>
+              )
+            })}
+
+          </tbody>
+          </table>
 
       </div>
     )
